@@ -38,4 +38,19 @@ describe('TicTacToe', () => {
     // Verifica se o jogador atual é igual a 'X'.
     expect(game.player).toEqual('X')
   })
+
+  // Teste: o jogo deve acabar se houver um vencedor.
+  test('should end if there is a winner', () => {
+    // Faz as jogadas necessárias para que o jogador 'X' vença.
+    game.play(0)
+    game.play(3)
+    game.play(1)
+    game.play(4)
+    game.play(2)
+
+    // Verifica se o jogador atual é igual a 'X'.
+    expect(game.player).toEqual('X')
+    // Verifica se o jogo acabou.
+    expect(game.isOver()).toBeTruthy()
+  })
 })
