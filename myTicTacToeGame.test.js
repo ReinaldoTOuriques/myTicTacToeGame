@@ -39,18 +39,59 @@ describe('TicTacToe', () => {
     expect(game.player).toEqual('X')
   })
 
-  // Teste: o jogo deve acabar se houver um vencedor.
-  test('should end if there is a winner', () => {
-    // Faz as jogadas necessárias para que o jogador 'X' vença.
-    game.play(0)
-    game.play(3)
-    game.play(1)
-    game.play(4)
-    game.play(2)
+  // Teste: o jogo deve acabar se houver um vencedor ou se houver empate.
+  test('should end if there is a winner or a tie', () => {
+  // Realiza uma sequência de jogadas para resultar em uma vitória para o jogador 'X'.
+    game.play(0) // X
+    game.play(3) // O
+    game.play(1) // X
+    game.play(4) // O
+    game.play(2) // X
+
+    // Verifica se o jogador atual é igual a 'O'.
+    expect(game.player).toEqual('O')
+    // Verifica se o jogo acabou.
+    expect(game.isOver()).toBeTruthy()
+    // Verifica se o jogador 'X' é o vencedor.
+    expect(game.getWinner()).toEqual('X')
+
+    // Reinicia o jogo para um novo teste.
+    game = new TicTacToe()
+
+    // Realiza uma sequência de jogadas para resultar em uma vitória para o jogador 'O'.
+    game.play(0) // X
+    game.play(1) // O
+    game.play(3) // X
+    game.play(4) // O
+    game.play(6) // X
+    game.play(7) // O
 
     // Verifica se o jogador atual é igual a 'X'.
     expect(game.player).toEqual('X')
     // Verifica se o jogo acabou.
     expect(game.isOver()).toBeTruthy()
+    // Verifica se o jogador 'O' é o vencedor.
+    expect(game.getWinner()).toEqual('O')
+
+    // Reinicia o jogo para um novo teste.
+    game = new TicTacToe()
+
+    // Realiza uma sequência de jogadas para resultar em um empate.
+    game.play(0) // X
+    game.play(1) // O
+    game.play(2) // X
+    game.play(3) // O
+    game.play(4) // X
+    game.play(7) // O
+    game.play(6) // X
+    game.play(5) // O
+    game.play(8) // X
+
+    // Verifica se o jogador atual é igual a 'X'.
+    expect(game.player).toEqual('X')
+    // Verifica se o jogo acabou.
+    expect(game.isOver()).toBeTruthy()
+    // Verifica se não há um vencedor.
+    expect(game.getWinner()).toBeNull()
   })
 })
