@@ -1,5 +1,5 @@
 // Importando a classe TicTacToe do arquivo myTicTacToeGame.js.
-const TicTacToe = require('./myTicTacToeGame.js')
+const TicTacToe = require('./scripts/myTicTacToeGame.js')
 
 // Iniciando a suíte de testes.
 describe('TicTacToe', () => {
