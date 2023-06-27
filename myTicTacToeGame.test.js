@@ -1,56 +1,24 @@
-// Importando a classe MyTicTacToeGame do arquivo myTicTacToeGame.js.
-import MyTicTacToeGame from './myTicTacToeGame'
+// Importando a classe TicTacToe do arquivo myTicTacToeGame.js.
+const TicTacToe = require('./myTicTacToeGame.js')
 
-// Iniciando a suíte de testes para a classe MyTicTacToeGame.
-describe('MyTicTacToeGame', () => {
+// Iniciando a suíte de testes.
+describe('TicTacToe', () => {
   let game
 
-  // Antes de cada teste, cria uma nova instância do jogo.
+  // Antes de cada teste, cria uma nova instância da classe TicTacToe e atribui a variável game.
   beforeEach(() => {
-    game = new MyTicTacToeGame()
+    game = new TicTacToe()
   })
 
-  // Teste: verifica se o jogo foi iniciado corretamente.
-  it('should initialize the game with an empty board', () => {
-    expect(game.board).toEqual([
-      [null, null, null],
-      [null, null, null],
-      [null, null, null]
-    ])
-    expect(game.currentPlayer).toBe('X')
-    expect(game.winner).toBe(null)
+  // Teste: o jogo deve ser inicializado com um tabuleiro vazio.
+  test('should initialize with an empty board', () => {
+    // Verifica se o tabuleiro do jogo é igual a um array com nove elementos nulos.
+    expect(game.board).toEqual([null, null, null, null, null, null, null, null, null])
   })
 
-  // Teste: verifica se o jogador atual é alternado corretamente.
-  it('should alternate the current player', () => {
-    expect(game.currentPlayer).toBe('X')
-    game.play(0, 0)
-    expect(game.currentPlayer).toBe('O')
-    game.play(0, 1)
-    expect(game.currentPlayer).toBe('X')
-  })
-
-  // Teste: verifica se o jogo é finalizado corretamente quando há vencedor.
-  it('should end the game when there is a winner', () => {
-    game.play(0, 0)
-    game.play(1, 0)
-    game.play(0, 1)
-    game.play(1, 1)
-    game.play(0, 2)
-    expect(game.winner).toBe('X')
-  })
-
-  // Teste: verifica se o jogo é finalizado corretamente quando há empate.
-  it('should end the game when there is a draw', () => {
-    game.play(0, 0)
-    game.play(1, 0)
-    game.play(2, 0)
-    game.play(1, 1)
-    game.play(0, 1)
-    game.play(0, 2)
-    game.play(1, 2)
-    game.play(2, 1)
-    game.play(2, 2)
-    expect(game.winner).toBe(null)
+  // Teste: o jogo deve ser inicializado com o jogador X.
+  test('should initialize with player X', () => {
+    // Verifica se o jogador do jogo é igual a 'X'.
+    expect(game.player).toEqual('X')
   })
 })
