@@ -11,6 +11,10 @@ class TicTacToe {
     this.playerX = playerXName || 'Jogador 1'
     // Define o nome do jogador O.
     this.playerO = playerOName || 'Jogador 2'
+    // Mostra o nome do jogador atual.
+    this.currentPlayerName = () => {
+      return this.currentPlayer === playerX ? this.playerX : this.playerO
+    }
   }
 
   // Método para fazer uma jogada.
