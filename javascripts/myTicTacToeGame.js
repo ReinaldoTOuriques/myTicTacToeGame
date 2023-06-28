@@ -2,11 +2,15 @@ const playerX = 'X'
 const playerO = 'O'
 
 class TicTacToe {
-  constructor () {
+  constructor (playerXName, playerOName) {
     // Cria um tabuleiro representado por um array com 9 elementos, inicialmente preenchidos com null.
     this.board = new Array(9).fill(null)
     // Define o jogador atual como 'X'.
     this.currentPlayer = playerX
+    // Define o nome do jogador X.
+    this.playerX = playerXName || 'Jogador 1'
+    // Define o nome do jogador O.
+    this.playerO = playerOName || 'Jogador 2'
   }
 
   // Método para fazer uma jogada.
