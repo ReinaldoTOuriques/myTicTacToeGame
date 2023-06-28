@@ -1,5 +1,5 @@
 // Importando a classe TicTacToe do arquivo myTicTacToeGame.js.
-const TicTacToe = require('./scripts/myTicTacToeGame.js')
+const TicTacToe = require('./javascripts/myTicTacToeGame.js')
 
 // Iniciando a suíte de testes.
 describe('TicTacToe', () => {
@@ -20,6 +20,14 @@ describe('TicTacToe', () => {
   test('should initialize with player X', () => {
     // Verifica se o jogador do jogo é igual a 'X'.
     expect(game.currentPlayer).toEqual('X')
+  })
+
+  // Teste: Deve ser possível incluir os nomes dos dois jogadores;
+  test('should be possible to include the names of the two players', () => {
+    // Verifica se o nome do jogador X é igual a 'Jogador 1'.
+    expect(game.playerX).toEqual('Jogador 1')
+    // Verifica se o nome do jogador O é igual a 'Jogador 2'.
+    expect(game.playerO).toEqual('Jogador 2')
   })
 
   // Teste: o jogador deve ser capaz de fazer uma jogada e alternar o jogador atual após a jogada.
@@ -53,4 +61,6 @@ describe('TicTacToe', () => {
       'Jogada inválida. Por favor, escolha uma posição vazia no tabuleiro.'
     )
   })
+
+  // Teste: 
 })
