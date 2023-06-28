@@ -1,7 +1,7 @@
 // Importando a classe TicTacToe do arquivo myTicTacToeGame.js.
 const TicTacToe = require('./javascripts/myTicTacToeGame.js')
 
-// Iniciando a suíte de testes.
+// Suíte de testes.
 describe('TicTacToe', () => {
   let game
 
@@ -16,7 +16,7 @@ describe('TicTacToe', () => {
     expect(game.board).toEqual([null, null, null, null, null, null, null, null, null])
   })
 
-  // Teste: Deve ser possível incluir os nomes dos dois jogadores;
+  // Teste: deve ser possível incluir os nomes dos dois jogadores;
   test('should be possible to include the names of the two players', () => {
     // Verifica se o nome do jogador X é igual a 'Jogador 1'.
     expect(game.playerX).toEqual('Jogador 1')
@@ -62,7 +62,7 @@ describe('TicTacToe', () => {
     )
   })
 
-  // Teste: O nome do jogador da vez deve ser mostrado na tela e alterado a medida que os turnos vão se alternando;
+  // Teste: o nome do jogador da vez deve ser mostrado na tela e alterado a medida que os turnos vão se alternando;
   test('should show the name of the current player', () => {
     // Verifica se o nome do jogador atual é igual a 'Jogador 1'.
     expect(game.currentPlayerName()).toEqual('Jogador 1')
@@ -76,5 +76,25 @@ describe('TicTacToe', () => {
     game.play(1)
     // Verifica se o nome do jogador atual é igual a 'Jogador 1'.
     expect(game.currentPlayerName()).toEqual('Jogador 1')
+  })
+
+  // Teste: o jogo deve ser capaz de identificar o vencedor;
+  test('should be able to identify the winner', () => {
+    // Faz uma jogada na posição 0.
+    game.play(0)
+    // Faz uma jogada na posição 3.
+    game.play(3)
+    // Faz uma jogada na posição 1.
+    game.play(1)
+    // Faz uma jogada na posição 4.
+    game.play(4)
+    // Faz uma jogada na posição 2.
+    game.play(2)
+    // Verifica se o jogador atual é igual a 'X'.
+    expect(game.currentPlayer).toEqual('X')
+    // Verifica se o nome do jogador atual é igual a 'Jogador 1'.
+    expect(game.currentPlayerName()).toEqual('Jogador 1')
+    // Verifica se o vencedor é o jogador X.
+    expect(game.winner()).toEqual('X')
   })
 })
