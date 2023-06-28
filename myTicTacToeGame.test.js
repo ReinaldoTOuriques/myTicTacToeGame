@@ -16,18 +16,18 @@ describe('TicTacToe', () => {
     expect(game.board).toEqual([null, null, null, null, null, null, null, null, null])
   })
 
-  // Teste: o jogo deve ser inicializado com o jogador X.
-  test('should initialize with player X', () => {
-    // Verifica se o jogador do jogo é igual a 'X'.
-    expect(game.currentPlayer).toEqual('X')
-  })
-
   // Teste: Deve ser possível incluir os nomes dos dois jogadores;
   test('should be possible to include the names of the two players', () => {
     // Verifica se o nome do jogador X é igual a 'Jogador 1'.
     expect(game.playerX).toEqual('Jogador 1')
     // Verifica se o nome do jogador O é igual a 'Jogador 2'.
     expect(game.playerO).toEqual('Jogador 2')
+  })
+
+  // Teste: o jogo deve ser inicializado com o jogador X.
+  test('should initialize with player X', () => {
+    // Verifica se o jogador do jogo é igual a 'X'.
+    expect(game.currentPlayer).toEqual('X')
   })
 
   // Teste: o jogador deve ser capaz de fazer uma jogada e alternar o jogador atual após a jogada.
@@ -62,5 +62,19 @@ describe('TicTacToe', () => {
     )
   })
 
-  // Teste: 
+  // Teste: O nome do jogador da vez deve ser mostrado na tela e alterado a medida que os turnos vão se alternando;
+  test('should show the name of the current player', () => {
+    // Verifica se o nome do jogador atual é igual a 'Jogador 1'.
+    expect(game.currentPlayerName()).toEqual('Jogador 1')
+
+    // Faz uma jogada na posição 0.
+    game.play(0)
+    // Verifica se o nome do jogador atual é igual a 'Jogador 2'.
+    expect(game.currentPlayerName()).toEqual('Jogador 2')
+
+    // Faz uma jogada na posição 1.
+    game.play(1)
+    // Verifica se o nome do jogador atual é igual a 'Jogador 1'.
+    expect(game.currentPlayerName()).toEqual('Jogador 1')
+  })
 })
