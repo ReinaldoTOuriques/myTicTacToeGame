@@ -45,29 +45,42 @@ class TicTacToe {
     this.currentPlayer = this.currentPlayer === playerX ? playerO : playerX
   }
 
-  // Método para verificar se o jogo acabou com vitória ou empate.
-  isGameOver () {
-  // Verifica se todas as células estão preenchidas (empate) ou se há um vencedor.
-    return this.board.every(cell => cell !== null) || this.getWinner() !== null
+  // Método para verificar se o jogo acabou com uma vitória ou um empate. Em ambos os casos, deve retornar uma mensagem na tela indicando o resultado.
+  isTheGameOver () {
+    // Verifica se o jogo terminou em empate.
+    if (this.isDraw()) {
+      return 'O jogo terminou em empate!'
+    }
+    // Verifica se o jogo terminou com vitória.
+    if (this.isVictory()) {
+      return `O jogador ${this.currentPlayerName()} venceu!`
+    }
+    // Caso contrário, retorna false.
+    return false
   }
 
-  // Método para obter o vencedor do jogo.
-  getWinner () {
-    // Percorre todas as combinações vencedoras possíveis.
+  // Método para verificar se o jogo terminou em empate.
+  isDraw () {
+    // Verifica se todas as posições do tabuleiro estão preenchidas.
+    return this.board.every(position => position)
+  }
+
+  // Método para verificar se o jogo terminou com vitória.
+  isVictory () {
+    // Percorre todas as combinações de vitória.
     for (const combination of this.winningCombinations) {
-      const [a, b, c] = combination
-      // Verifica se as células da combinação atual possuem o mesmo valor (X ou O).
+      // Verifica se todas as posições da combinação são iguais e diferentes de null.
       if (
-        this.board[a] &&
-      this.board[a] === this.board[b] &&
-      this.board[a] === this.board[c]
+        this.board[combination[0]] &&
+        this.board[combination[0]] === this.board[combination[1]] &&
+        this.board[combination[0]] === this.board[combination[2]]
       ) {
-      // Retorna o valor do jogador vencedor (X ou O).
-        return this.board[a]
+        // Caso positivo, retorna true.
+        return true
       }
     }
-    // Caso não haja um vencedor, retorna null.
-    return null
+    // Caso contrário, retorna false.
+    return false
   }
 }
 

@@ -1,5 +1,5 @@
 // Importando a classe TicTacToe do arquivo myTicTacToeGame.js.
-const TicTacToe = require('./javascripts/myTicTacToeGame.js')
+const TicTacToe = require('./myTicTacToeGame.js')
 
 // Suíte de testes.
 describe('TicTacToe', () => {
@@ -78,6 +78,34 @@ describe('TicTacToe', () => {
     expect(game.currentPlayerName()).toEqual('Jogador 1')
   })
 
+  // Teste: o jogo deve ser capaz de identificar um empate.
+  test('should be able to identify a draw', () => {
+    // Faz uma jogada na posição 0.
+    game.play(0)
+    // Faz uma jogada na posição 1.
+    game.play(1)
+    // Faz uma jogada na posição 2.
+    game.play(2)
+    // Faz uma jogada na posição 4.
+    game.play(4)
+    // Faz uma jogada na posição 3.
+    game.play(3)
+    // Faz uma jogada na posição 5.
+    game.play(5)
+    // Faz uma jogada na posição 6.
+    game.play(6)
+    // Faz uma jogada na posição 8.
+    game.play(8)
+    // Faz uma jogada na posição 7.
+    game.play(7)
+    // Verifica se o jogador atual é igual a 'X'.
+    expect(game.currentPlayer).toEqual('O')
+    // Verifica se o nome do jogador atual é igual a 'Jogador 1'.
+    expect(game.currentPlayerName()).toEqual('Jogador 2')
+    // Verifica se o jogo terminou em empate.
+    expect(game.isDraw()).toEqual(true)
+  })
+
   // Teste: o jogo deve ser capaz de identificar o vencedor.
   test('should be able to identify the winner', () => {
     // Faz uma jogada na posição 0.
@@ -95,6 +123,6 @@ describe('TicTacToe', () => {
     // Verifica se o nome do jogador atual é igual a 'Jogador 1'.
     expect(game.currentPlayerName()).toEqual('Jogador 2')
     // Verifica se o vencedor é o jogador X.
-    expect(game.getWinner()).toEqual('X')
+    expect(game.isVictory()).toEqual(true)
   })
 })
