@@ -98,9 +98,9 @@ describe('TicTacToe', () => {
     game.play(8)
     // Faz uma jogada na posição 7.
     game.play(7)
-    // Verifica se o jogador atual é igual a 'X'.
+    // Verifica se o jogador atual é igual a 'O'.
     expect(game.currentPlayer).toEqual('O')
-    // Verifica se o nome do jogador atual é igual a 'Jogador 1'.
+    // Verifica se o nome do jogador atual é igual a 'Jogador 2'.
     expect(game.currentPlayerName()).toEqual('Jogador 2')
     // Verifica se o jogo terminou em empate.
     expect(game.isDraw()).toEqual(true)
@@ -118,11 +118,25 @@ describe('TicTacToe', () => {
     game.play(4)
     // Faz uma jogada na posição 2.
     game.play(2)
-    // Verifica se o jogador atual é igual a 'X'.
+    // Verifica se o jogador atual é igual a 'O'.
     expect(game.currentPlayer).toEqual('O')
-    // Verifica se o nome do jogador atual é igual a 'Jogador 1'.
+    // Verifica se o nome do jogador atual é igual a 'Jogador 2'.
     expect(game.currentPlayerName()).toEqual('Jogador 2')
     // Verifica se o vencedor é o jogador X.
     expect(game.isVictory()).toEqual(true)
+  })
+
+  // Teste: Deve ser possível reiniciar o jogo para jogar novamente.
+  test('should be possible to restart the game to play again', () => {
+    // Reinicia o jogo.
+    game.restart()
+    // Verifica se o tabuleiro do jogo é igual a um array com nove elementos nulos.
+    expect(game.board).toEqual([null, null, null, null, null, null, null, null, null])
+    // Verifica se o nome do jogador X é igual a 'Jogador 1'.
+    expect(game.playerX).toEqual('Jogador 1')
+    // Verifica se o nome do jogador O é igual a 'Jogador 2'.
+    expect(game.playerO).toEqual('Jogador 2')
+    // Verifica se o jogador atual é igual a 'X'.
+    expect(game.currentPlayer).toEqual('X')
   })
 })
