@@ -82,6 +82,14 @@ class TicTacToe {
     // Caso contrário, retorna false.
     return false
   }
+
+  // Método para reiniciar o jogo.
+  restart () {
+    // Reinicia o tabuleiro.
+    this.board = new Array(9).fill(null)
+    // Define o jogador atual como 'X'.
+    this.currentPlayer = playerX
+  }
 }
 
 module.exports = TicTacToe
