@@ -1,7 +1,7 @@
 const playerX = 'X'
 const playerO = 'O'
 
-class TicTacToe {
+class GameLogic {
   constructor (playerXName, playerOName) {
     // Cria um tabuleiro representado por um array com 9 elementos, inicialmente preenchidos com null.
     this.board = new Array(9).fill(null)
@@ -92,4 +92,4 @@ class TicTacToe {
   }
 }
 
-module.exports = TicTacToe
+module.exports = GameLogic
