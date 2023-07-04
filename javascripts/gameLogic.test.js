@@ -126,7 +126,7 @@ describe('GameLogic', () => {
     expect(theGame.isVictory()).toEqual(true)
   })
 
-  // Teste: Deve ser possível reiniciar o jogo para jogar novamente.
+  // Teste: deve ser possível reiniciar o jogo para jogar novamente.
   test('should be possible to restart the theGame to play again', () => {
     // Reinicia o jogo.
     theGame.restart()
