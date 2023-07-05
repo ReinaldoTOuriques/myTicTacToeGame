@@ -7,7 +7,16 @@
   <title>MyTicTacToeGame</title>
 </head>
 <body>
-  <div class="container"></div>
-  <script src="/javascripts/myTicTacToeGame.js"></script>
+  <div class="container">
+    <div class="game">
+      <table class="gameBoard">
+        <tbody id="board"></tbody>
+      </table>
+      <div class="gameStatus" id="status"></div>
+      <button class="gameRestart" id="restart">Restart Game</button>
+    </div>
+  </div>
+  <script src="/javascripts/gameLogic.js"></script>
+  <script src="/javascripts/gameInterface.js"></script>
 </body>
 </html>

@@ -12,12 +12,12 @@ describe('GameInterface', () => {
     theInterface = new GameInterface(theGame)
   })
 
-  // Teste: no início de cada nova partida, por meio do método showBoard, o jogo deve exibir o tabuleiro vazio.
+  // Teste: no início de cada nova partida, o jogo deve exibir o tabuleiro vazio.
   it('should show an empty board at the beginning of each new game', () => {
-    expect(theInterface.showBoard()).toEqual([
-      [' ', ' ', ' '],
-      [' ', ' ', ' '],
-      [' ', ' ', ' ']
-    ])
+    theInterface.showBoard()
+
+    const boardElement = document.getElementById('board')
+
+    expect(boardElement.innerHTML).toBe('')
   })
 })
