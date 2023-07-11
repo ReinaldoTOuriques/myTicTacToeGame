@@ -10,13 +10,28 @@
   <div class="container">
     <div class="game">
       <table class="gameBoard">
-        <tbody id="board"></tbody>
+        <tbody id="board">
+          <tr>
+            <td class="cell" id="0"></td>
+            <td class="cell" id="1"></td>
+            <td class="cell" id="2"></td>
+          </tr>
+          <tr>
+            <td class="cell" id="3"></td>
+            <td class="cell" id="4"></td>
+            <td class="cell" id="5"></td>
+          </tr>
+          <tr>
+            <td class="cell" id="6"></td>
+            <td class="cell" id="7"></td>
+            <td class="cell" id="8"></td>
+          </tr>
+        </tbody>
       </table>
       <div class="gameStatus" id="status"></div>
       <button class="gameRestart" id="restart">Restart Game</button>
     </div>
   </div>
   <script src="/javascripts/gameLogic.js"></script>
-  <script src="/javascripts/gameInterface.js"></script>
 </body>
 </html>
